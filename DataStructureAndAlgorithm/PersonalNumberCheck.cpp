@@ -3,12 +3,12 @@
 #include <iostream>
 
 // 오로지 숫자 변환 용
-int _Check_return_ ctoi(char);
+int _Check_return_	ctoi(char);
 
-void checkDate(char[], int&, int&, int&);
-void checkGender(char[], bool&);
-int _Check_return_ checkRegion(char[]);
-bool checkValid(char[]);
+void				checkDate(char[], int&, int&, int&);
+void				checkGender(char[], bool&);
+int _Check_return_	checkRegion(char[]);
+bool				checkValid(char[]);
 
 int main()
 {
@@ -21,11 +21,10 @@ int main()
 
 	std::cout << "주민등록번호를 입력하세요." << std::endl;
 	std::cin  >> personal;
-	
 	checkDate(personal, year, month, date);
-	std::cout << year << "년 ";
+	std::cout << year  << "년 ";
 	std::cout << month << "월 ";
-	std::cout << date << "일 생" << std::endl;
+	std::cout << date  << "일 생" << std::endl;
 
 	checkGender(personal, isMan);
 	if (isMan)
