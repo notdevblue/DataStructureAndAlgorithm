@@ -12,14 +12,12 @@ bool checkValid(char[]);
 
 int main()
 {
-			char	personal[14]		= {'\0',};
-			char	regionName[][11]	= { "서울", "부산", "인천", "경기주요", "경기주요외", "강원", "충북", "충남", "전북", "전남", "경상" };
-	const	char*	region;
-	// 서울, 부산, 인천, 경기주요, 경기, 강원, 충북, 충남, 전북, 전남, 경상
-	int		year			= 0;
-	int		month			= 0;
-	int		date			= 0;
-	bool	isMan			= false;
+	char	personal[14]		= {'\0',};
+	char	regionName[][11]	= { "서울", "부산", "인천", "경기주요", "경기주요외", "강원", "충북", "충남", "전북", "전남", "경상" };
+	int		year				= 0;
+	int		month				= 0;
+	int		date				= 0;
+	bool	isMan				= false;
 
 	std::cout << "주민등록번호를 입력하세요." << std::endl;
 	std::cin  >> personal;
@@ -96,6 +94,8 @@ int _Check_return_ checkRegion(char personal[])
 		if (regionNum <= birthRegion[i])
 			return i;
 	}
+
+	return -1;
 }
 
 bool checkValid(char personal[])
