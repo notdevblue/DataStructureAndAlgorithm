@@ -4,11 +4,12 @@
 
 // 오로지 숫자 변환 용
 int _Check_return_ ctoi(char);
+
 void checkDate(char[], int&, int&, int&);
 void checkGender(char[], bool&);
 int _Check_return_ checkRegion(char[]);
+bool checkValid(char[]);
 
-#pragma region 기본 문제
 int main()
 {
 			char	personal[14]		= {'\0',};
@@ -35,10 +36,14 @@ int main()
 		std::cout << "여자" << std::endl;
 
 	std::cout << regionName[checkRegion(personal)] << std::endl;
+	
+	if (checkValid(personal))
+		std::cout << "유효함" << std::endl;
+	else
+		std::cout << "유효하지 않음" << std::endl;
 
 	return(0);
 }
-#pragma endregion
 
 int _Check_return_ ctoi(char ch)
 {
@@ -91,4 +96,34 @@ int _Check_return_ checkRegion(char personal[])
 		if (regionNum <= birthRegion[i])
 			return i;
 	}
+}
+
+bool checkValid(char personal[])
+{
+	int personalNum[13];
+	int check[13];
+	int sum = 0;
+
+
+	for (int i = 0; i < _countof(personalNum); ++i)
+	{
+		personalNum[i] = ctoi(personal[i]);
+	}
+
+
+	for (int i = 0; i < 8; ++i)
+	{
+		check[i] = personalNum[i] * (i + 2);
+	}
+	check[8]	= personalNum[8]	* 2;
+	check[9]	= personalNum[9]	* 3;
+	check[10]	= personalNum[10]	* 4;
+	check[11]	= personalNum[11]	* 5;
+
+	for (int i = 0; i < _countof(check) - 1; ++i)
+	{
+		sum += check[i];
+	}
+
+	return ((11 - (sum % 11)) % 10) == personalNum[12];
 }
