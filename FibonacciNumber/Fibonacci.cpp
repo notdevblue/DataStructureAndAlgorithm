@@ -4,7 +4,7 @@ int fibonacci(int num);
 
 int main()
 {
-	std::cout << "수 입력: ";
+	std::cout << "수 입력 (피보나치): ";
 	int num;
 	std::cin >> num;
 	std::cout << fibonacci(num) << std::endl;
@@ -14,6 +14,14 @@ int main()
 
 int fibonacci(int num)
 {
+	if (num == 0)
+		return 0;
+	else if (num == 1)
+		return 1;
+	else
+	{
+		return fibonacci(num - 1) + fibonacci(num - 2);
+	}
 	
 
 
