@@ -17,18 +17,23 @@ int main()
 
 int fact(int num)
 {
-	static int count = 1;
-	static int result = 1;
-
-	result *= count;
-
-	if (num == count)
-		return result;
+	if (!num)
+	{
+		return 1;
+	}
 	else
 	{
-		++count;
-		fact(num);
+		return num * fact(num - 1);
 	}
 
-
+	//static int count = 1;
+	//static int result = 1;
+	//result *= count;
+	//if (num == count)
+	//	return result;
+	//else
+	//{
+	//	++count;
+	//	fact(num);
+	//}
 }
