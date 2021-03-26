@@ -4,7 +4,11 @@ int noGaus(int);
 
 int main()
 {
-	std::cout << noGaus(10) << std::endl;
+	int num;
+	std::cout << "¼ö ÀÔ·Â: ";
+	std::cin >> num;
+
+	std::cout << noGaus(num) << std::endl;
 
 	return(0);
 }
