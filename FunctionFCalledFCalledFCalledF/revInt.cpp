@@ -59,5 +59,5 @@ int rev(int num)
 		std::cout << (num % 10);
 		return rev(num / 10);
 	}
-		
+	return(0);
 }
