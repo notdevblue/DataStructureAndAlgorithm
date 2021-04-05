@@ -12,7 +12,7 @@ bool				checkValid(char[]);
 
 int main()
 {
-	char	personal[14]		= {'\0',};
+	char	personal[14]		= {'\0'};
 	char	regionName[][11]	= { "서울", "부산", "인천", "경기주요", "경기주요외", "강원", "충북", "충남", "전북", "전남", "경상" };
 	int		year				= 0;
 	int		month				= 0;
@@ -73,9 +73,14 @@ void checkGender(char personal[], bool& isMan)
 	{
 		isMan = false;
 	}
-	else
+	else if((personal[6] % 2) == 1)
 	{
 		isMan = true;
+	}
+	else
+	{
+		std::cout << "아마도 잘못된 입력입니다." << std::endl;
+		abort();
 	}
 }
 
