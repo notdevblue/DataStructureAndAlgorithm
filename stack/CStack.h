@@ -1,7 +1,6 @@
+// 20219 �ѿ쿱
 #pragma once
 #include <iostream>
-
-#define SIZE 10
 
 template<typename T>
 class CStack
@@ -10,7 +9,6 @@ private:
 	T*		stackArr;
 	int		topIndex;
 	int		stacksize;
-	char	name;
 	
 public:
 
@@ -41,7 +39,7 @@ public:
 
 	void push(T ch)
 	{
-		if (topIndex == SIZE)
+		if (topIndex == stacksize)
 		{
 			std::cout << "stack is full." << std::endl;
 			return;
@@ -52,7 +50,7 @@ public:
 
 	int size()
 	{
-		return sizeof(T) * this->stacksize;
+		return stacksize;
 	}
 
 };
