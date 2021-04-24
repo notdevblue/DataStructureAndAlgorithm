@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkList", "LinkList\LinkLi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoubleLinkedList", "DoubleLinkedList\DoubleLinkedList.vcxproj", "{8E2603A0-8868-4E68-BC3F-8A331F67D720}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Maze", "Maze\Maze.vcxproj", "{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{8E2603A0-8868-4E68-BC3F-8A331F67D720}.Release|x64.Build.0 = Release|x64
 		{8E2603A0-8868-4E68-BC3F-8A331F67D720}.Release|x86.ActiveCfg = Release|Win32
 		{8E2603A0-8868-4E68-BC3F-8A331F67D720}.Release|x86.Build.0 = Release|Win32
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Debug|x64.ActiveCfg = Debug|x64
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Debug|x64.Build.0 = Debug|x64
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Debug|x86.ActiveCfg = Debug|Win32
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Debug|x86.Build.0 = Debug|Win32
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Release|x64.ActiveCfg = Release|x64
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Release|x64.Build.0 = Release|x64
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Release|x86.ActiveCfg = Release|Win32
+		{D8D69A69-22E1-419E-A1FB-3D76CB81D58E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
