@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ab5b556a-1975-4c92-be30-dfd8b3b69393}</ProjectGuid>
-    <RootNamespace>stack3</RootNamespace>
+    <ProjectGuid>{a4307005-0e28-485d-a81a-9bc51532b06c}</ProjectGuid>
+    <RootNamespace>Queue</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="calc.cpp" />
-    <ClCompile Include="printrev.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CStack.h" />
+    <ClCompile Include="queue.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
