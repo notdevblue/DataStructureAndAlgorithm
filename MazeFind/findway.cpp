@@ -85,10 +85,7 @@ int main()
 	{
 		findRoad();
 		std::cout << "x: " << g_stMove.top().x << "\ty:" << g_stMove.top().y << std::endl;
-		Sleep(100);
 	}
-
-	
 
 	return(0);
 }
@@ -175,76 +172,68 @@ void findRoad()
 	{
 		std::cout << "갈림길" << std::endl;
 
-		int	dir;
+		int		dir;
+		bool	isNotSameDirection = false;
+		bool	isNotWall			= false;
+
 
 		g_backup.x = curX;
 		g_backup.y = curY;
 
-		if (g_isReturned)
+
+		while (true)
 		{
-			
-			bool	isSameDirection	= false;
-			bool	isNotWall		= false;
-			do
-			{
-				dir = rand() % 4;
-				
-				switch (dir)
-				{
-				case 0:
-					g_backup.directionSelected = g_lastDirection = direction::Up;
-					isNotWall = g_maze[curY - 1][curX] != 1;
-					break;
+			int	tempX = curX;
+			int	tempY = curY;
 
-				case 1:
-					g_backup.directionSelected = g_lastDirection = direction::Down;
-					isNotWall = g_maze[curY + 1][curX] != 1;
-					break;
-
-				case 2:
-					g_backup.directionSelected = g_lastDirection = direction::Left;
-					isNotWall = g_maze[curY][curX - 1] != 1;
-					break;
-
-				case 3:
-					isNotWall = g_maze[curY][curX + 1] != 1;
-					break;
-				}
-				
-				isSameDirection = (dir != g_stBackup.top().directionSelected);
-
-
-			}
-			while (isSameDirection && isNotWall);
-		}
-
-		if (!g_isReturned)
 			dir = rand() % 4;
 
-		switch (dir)
-		{
-		case 0:
-			g_backup.directionSelected = g_lastDirection = direction::Up;
-			--curY;
-			break;
-		case 1:
-			g_backup.directionSelected = g_lastDirection = direction::Down;
-			++curY;
-			break;
-		case 2:
-			g_backup.directionSelected = g_lastDirection = direction::Left;
-			--curX;
-			break;
-		case 3:
-			g_backup.directionSelected = g_lastDirection = direction::Right;
-			++curX;
-			break;
-		}
+			if (g_isReturned)
+			{
+				if (dir == g_stBackup.top().directionSelected)
+					continue;
+			}
 
+			switch (dir)
+			{
+			case 0:
+				g_backup.directionSelected = g_lastDirection = direction::Up;
+				--tempY;
+				isNotWall = g_maze[curY - 1][curX] != 1;
+				break;
+
+			case 1:
+				g_backup.directionSelected = g_lastDirection = direction::Down;
+				++tempY;
+				isNotWall = g_maze[curY + 1][curX] != 1;
+				break;
+
+			case 2:
+				g_backup.directionSelected = g_lastDirection = direction::Left;
+				--tempX;
+				isNotWall = g_maze[curY][curX - 1] != 1;
+				break;
+
+			case 3:
+				g_backup.directionSelected = g_lastDirection = direction::Right;
+				++tempX;
+				isNotWall = g_maze[curY][curX + 1] != 1;
+				break;
+			}
+
+
+			if (isNotWall)
+			{
+				curX = tempX;
+				curY = tempY;
+				g_isReturned = false;
+				break;
+			}
+
+		}
 		g_stBackup.push(g_backup);
 		std::cout << "갈림길 백업: " << g_stBackup.top().x << " " << g_stBackup.top().y << std::endl;
 
-		g_isReturned = false;
 	}
 	else if (roadCount == 1) // 직선도로
 	{
