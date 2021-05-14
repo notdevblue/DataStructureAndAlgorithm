@@ -34,9 +34,10 @@ int main()
 
 	while ((input = _getch()) != 13)
 	{
+		std::cout << input;
 		st.push(input);
 	}
-
+	
 	// in  => 12 + 23
 	// in  => 12 - 2 + 3
 	// out => 32 + 21
@@ -47,6 +48,7 @@ int main()
 		if (checkNumber(st))
 		{
 			addNumber1(st);
+			st.pop();
 		}
 		else
 		{
@@ -55,11 +57,15 @@ int main()
 			switch (st.top())
 			{
 			case '+':
-				while (true)
+				do
 				{
 					// 하나 pop 해서 계속 숫자일때까지
 					addNumber2(st);
-				}
+					st.pop();
+				} while (checkNumber(st));
+
+				std::cout << num1 + num2;
+				st.push(num1 + num2);
 				break;
 
 			case '-':
@@ -83,9 +89,10 @@ int main()
 		}
 
 
-		st.pop();
 	}
 	
+
+
 
 	return(0);
 }
