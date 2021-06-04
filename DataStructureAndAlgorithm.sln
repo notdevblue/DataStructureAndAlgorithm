@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeFind", "MazeFind\MazeFi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tree", "Tree\Tree.vcxproj", "{1BF6E505-D658-4947-BBCF-3E783F55D9C8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TreeTreeTree", "TreeTreeTree\TreeTreeTree.vcxproj", "{F40C2485-991F-440F-A304-57A37F77F1BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{1BF6E505-D658-4947-BBCF-3E783F55D9C8}.Release|x64.Build.0 = Release|x64
 		{1BF6E505-D658-4947-BBCF-3E783F55D9C8}.Release|x86.ActiveCfg = Release|Win32
 		{1BF6E505-D658-4947-BBCF-3E783F55D9C8}.Release|x86.Build.0 = Release|Win32
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Debug|x64.ActiveCfg = Debug|x64
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Debug|x64.Build.0 = Debug|x64
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Debug|x86.ActiveCfg = Debug|Win32
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Debug|x86.Build.0 = Debug|Win32
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Release|x64.ActiveCfg = Release|x64
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Release|x64.Build.0 = Release|x64
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Release|x86.ActiveCfg = Release|Win32
+		{F40C2485-991F-440F-A304-57A37F77F1BE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
