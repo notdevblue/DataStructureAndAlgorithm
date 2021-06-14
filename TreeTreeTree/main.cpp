@@ -1,5 +1,10 @@
 #include <iostream>
 
+
+// 트리의 레벨을 확인 ( 루트 = 1로 생각함 )
+int treeLevel(int input);
+void subtreeBeginArr(int level, int* arr);
+
 int main()
 {
 	// 3
@@ -19,23 +24,83 @@ int main()
 	// 후위 순회 하면 작은 나무 하나의 마지막이 됨
 	// 중위 순회 할때는 중간이 됩니다
 
-	
-	int nodeCount;
-	std::cin >> nodeCount;
-	
-	int* data = (int*)malloc(sizeof(int) * nodeCount);
+	// 15
+	// 1 "2 4 8 9  5  10 11" "3  6  12 13 7  14 15"
+	// 1 "2 (4 8 9)  (5  10 11)" "3   (6  12 13) (7  14 15)"
+	// 0  1  2 3 4    5  6  7     8    9  10 11   12 13 14 idx
+	// 0, "1, 2, 5, 8, 9, 12" 트리가 시작하는 노드 idx
 
-	for (int i = 0; i < nodeCount; ++i)
-	{
-		std::cin >> data[i];
-	}
-	
-	for (int item = 0; item < nodeCount; ++item)
-	{
-		std::cout << data[item];
-	}
+	// level - 1 만큼 1을 더하고 level - 1 만큼 3을 더하고 level - 2 만큼 1을 더하고 level - 2 만큼 3을 더함, while level - n != 0
+
+	//   "  (8 9 4)  (10 11 5 )  2"  "(12 13 6 ) (14 15 7 ) 3" 1
+
+	// 1 2 4 8 16 32 64 128
+	// 단위로 아레에 줄이 생김
 
 
-	free(data);
+	int input;
+	std::cin >> input;
+
+	std::cout << treeLevel(input) << std::endl;
+
+
+	//int nodeCount;
+	//std::cin >> nodeCount;
+	//
+	//int* data = (int*)malloc(sizeof(int) * nodeCount);
+
+	//for (int i = 0; i < nodeCount; ++i)
+	//{
+	//	std::cin >> data[i];
+	//}
+	//
+	//for (int item = 0; item < nodeCount; ++item)
+	//{
+	//	std::cout << data[item];
+	//}
+
+
+	//free(data);
 	return(0);
+}
+
+
+int treeLevel(int input)
+{
+	int level = 0;
+
+	while (input > 0)
+	{
+		++level;
+		input /= 2;
+	}
+
+	return level;
+}
+
+void subtreeBeginArr(int level, int* arr)
+{
+	// level - 1 만큼 1을 더하고 level - 1 만큼 3을 더하고 level - 2 만큼 1을 더하고 level - 2 만큼 3을 더함, while level - n != 0 <= subtree가 시작하는 위치
+
+	int* temparr = new int[level];
+	
+	int idx = 0;
+	int n = 0;
+
+
+
+	while (level - n != 0)
+	{
+		for (int i = 0; i < level; ++i)
+		{
+			temparr[idx] = n;
+			++idx;
+
+		}
+	}
+
+
+
+
+	delete[] temparr;
 }
