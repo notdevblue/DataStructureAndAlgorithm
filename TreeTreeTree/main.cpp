@@ -3,7 +3,7 @@
 
 // 트리의 레벨을 확인 ( 루트 = 1로 생각함 )
 int treeLevel(int input);
-void subtreeBeginArr(int level, int* arr);
+void subtreeBeginArr(int level, int input, int* numarr, int* arr);
 
 int main()
 {
@@ -37,30 +37,16 @@ int main()
 	// 1 2 4 8 16 32 64 128
 	// 단위로 아레에 줄이 생김
 
-
-	int input;
-	std::cin >> input;
-
-	std::cout << treeLevel(input) << std::endl;
+	int num15arr[15] = { 1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 12, 13, 7, 14, 15 }; // <= 전위 순회
+	int num7arr[7] = { 1,2,3,4,5,6,7 };
 
 
-	//int nodeCount;
-	//std::cin >> nodeCount;
-	//
-	//int* data = (int*)malloc(sizeof(int) * nodeCount);
+	int input = 7;
+	//std::cin >> input;
 
-	//for (int i = 0; i < nodeCount; ++i)
-	//{
-	//	std::cin >> data[i];
-	//}
-	//
-	//for (int item = 0; item < nodeCount; ++item)
-	//{
-	//	std::cout << data[item];
-	//}
+	// 포화이진트리만 일단 가능합니다.
+	subtreeBeginArr(treeLevel(input), input, num7arr, nullptr);
 
-
-	//free(data);
 	return(0);
 }
 
@@ -78,29 +64,59 @@ int treeLevel(int input)
 	return level;
 }
 
-void subtreeBeginArr(int level, int* arr)
+void subtreeBeginArr(int level, int count, int* numarr, int* arr)
 {
 	// level - 1 만큼 1을 더하고 level - 1 만큼 3을 더하고 level - 2 만큼 1을 더하고 level - 2 만큼 3을 더함, while level - n != 0 <= subtree가 시작하는 위치
 
-	int* temparr = new int[level];
-	
+	int* temparr = (int*)malloc(sizeof(int) * count);
+	for (int i = 0; i < count; ++i)
+	{
+		temparr[i] = -1;
+	}
+
+
 	int idx = 0;
-	int n = 0;
+	int n = 1;
 
-
+	
 
 	while (level - n != 0)
 	{
-		for (int i = 0; i < level; ++i)
+		for (int i = 0; i < level - n; ++i)
 		{
-			temparr[idx] = n;
+			temparr[idx] = numarr[idx];
 			++idx;
-
 		}
+		for (int i = 0; i < level - n; ++i)
+		{
+			temparr[idx] = numarr[idx];
+			idx += 3;
+		}
+
+		++n;
+	}
+	temparr[idx] = numarr[idx];
+
+	for (int i = 0; i < count; ++i)
+	{
+		std::cout << temparr[i] << " ";
+	}
+
+	Foo(temparr, numarr, count);
+
+	free(temparr);
+}
+
+void Foo(int* idxarr, int* numarr, int size)
+{
+	int* newArr = (int*)malloc(sizeof(int) * size);
+
+	for (int i = 0; i < size; ++i)
+	{
+		
 	}
 
 
 
-
-	delete[] temparr;
+	free(newArr);
 }
