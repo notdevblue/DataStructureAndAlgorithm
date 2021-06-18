@@ -1,3 +1,4 @@
+// 20219 한우엽
 #include <iostream>
 
 
@@ -8,6 +9,9 @@ void Foo(int* idxarr, int* numarr, int size);
 
 int main()
 {
+#pragma region 주석들
+
+
 	// 3
 	// 1 2 3
 	// 2 3 1
@@ -35,6 +39,7 @@ int main()
 
 	// 1 2 4 8 16 32 64 128
 	// 단위로 아레에 줄이 생김
+#pragma endregion
 
 	int num15arr[15] = { 1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 12, 13, 7, 14, 15 }; // <= 전위 순회
 	int num7arr[7] = { 1,2,3,4,5,6,7 };
@@ -150,6 +155,8 @@ void Foo(int* idxArr, int* numarr, int size)
 		}
 		std::cout << numSave[i] << " ";
 	}
+#pragma region 주석들 모음집
+
 
 	// 15
 	// 1 "2 4 8 9  5  10 11" "3  6  12 13 7  14 15"
@@ -174,6 +181,7 @@ void Foo(int* idxArr, int* numarr, int size)
 	// 전위 순회 할 때 1 다음으로 나오는 것이
 	// 후위 순회 하면 작은 나무 하나의 마지막이 됨
 	// 중위 순회 할때는 중간이 됩니다
+#pragma endregion
 
 	free(numSave);
 }
