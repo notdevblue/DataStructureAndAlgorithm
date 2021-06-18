@@ -31,8 +31,6 @@ int main()
 	// 0  1  2 3 4    5  6  7     8    9  10 11   12 13 14 idx
 	// 0, "1, 2, 5, 8, 9, 12" 트리가 시작하는 노드 idx
 
-	// level - 1 만큼 1을 더하고 level - 1 만큼 3을 더하고 level - 2 만큼 1을 더하고 level - 2 만큼 3을 더함, while level - n != 0
-
 	//   "  (8 9 4)  (10 11 5 )  2"  "(12 13 6 ) (14 15 7 ) 3" 1
 
 	// 1 2 4 8 16 32 64 128
@@ -43,13 +41,22 @@ int main()
 
 
 	int input = 15;
-	//std::cin >> input;
+	std::cout << "노드 수 입력: " << std::endl;
+	std::cin >> input;
+
+	// 전위 순회가 주어진다고 해서 따로 숫자가 아닐때의 예외처리를 하지 않았어요.
+	int* numArr = (int*)malloc(sizeof(int) * input);
+	std::cout << "전위 순회 입력" << std::endl;
+	for (int i = 0; i < input; ++i)
+	{
+		std::cin >> numArr[i];
+	}
 
 	// 포화이진트리만 일단 가능합니다.
-	subtreeBeginArr(treeLevel(input), input, num15arr, nullptr);
+	subtreeBeginArr(treeLevel(input), input, numArr, nullptr);
 
 
-	system("pause");
+	free(numArr);
 	return(0);
 }
 
@@ -63,7 +70,7 @@ int treeLevel(int input)
 		++level;
 		input /= 2;
 	}
-	std::cout << "level : " << level << std::endl;
+	std::cout << "level : " << level << std::endl;;
 
 	return level;
 }
@@ -101,11 +108,6 @@ void subtreeBeginArr(int level, int count, int* numarr, int* arr)
 	}
 	idxArr[idx] = numarr[idx];
 
-	for (int i = 0; i < count; ++i)
-	{
-		std::cout << idxArr[i] << " ";
-	}
-
 	Foo(idxArr, numarr, count);
 
 	free(idxArr);
@@ -135,10 +137,17 @@ void Foo(int* idxArr, int* numarr, int size)
 		}
 	}
 
-	std::cout << std::endl;
 
-	for (int i = 0 ; i  < size; ++i)
+
+	std::cout << std::endl;
+	
+	// 문제가 저장이 아닌 출력만 이루어지면 되는 거라서 출력만 했습니다.
+	for (int i = 1; i < size; ++i)
 	{
+		if ((i - 1== size / 2))
+		{
+			std::cout << numSave[0] << " ";
+		}
 		std::cout << numSave[i] << " ";
 	}
 
@@ -166,7 +175,5 @@ void Foo(int* idxArr, int* numarr, int size)
 	// 후위 순회 하면 작은 나무 하나의 마지막이 됨
 	// 중위 순회 할때는 중간이 됩니다
 
-
-	// TODO : 근노드 위치
 	free(numSave);
 }
