@@ -14,7 +14,7 @@ namespace DatastructureAndCsharp
                 {
                     if (i % n == 0) Console.WriteLine();
 
-                    Console.Write("*");
+                    Console.Write('*');
                 }
             }
 
@@ -42,6 +42,11 @@ namespace DatastructureAndCsharp
                     sb.Append('*');
                 }
 
+                // 수업 후 코딩
+                // 원레 앞은 그대로 나두고 뒤 4자리를 더하는 방법도 있다
+                // SubString() 함수를 사용하는 방법도 있다.
+                // 이망할c++
+
 
                 for (int i = 0; i < str.Length; ++i)
                 {
@@ -50,6 +55,9 @@ namespace DatastructureAndCsharp
                 return sbrev.ToString().TrimEnd();
             }
 
+            // 하은쌤코멘트
+            // float 보단 double 을 더 많이 사용함
+            // "double" 을 대부분 많이 사용함
             public float Average(int[] arr)
             {
                 int sum = 0;
