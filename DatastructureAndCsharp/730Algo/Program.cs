@@ -7,8 +7,14 @@ namespace _730Algo
 {
     class Program
     {
+        //arr.reverse();
+
         class SecondClass
         {
+
+            // num1 % n == 0 && num2 % n == 0, n = Math.Min(num1, num2), --n 으로 하면 최대공약수 구할 수 있음
+            // 비슷한 방법으로 최소공배수도 구할 수 있다.
+
             public int[] P6(int num1, int num2)
             {
                 if (num1 > num2)
@@ -67,7 +73,9 @@ namespace _730Algo
             private int count = 0;
             public int P8(int num)
             {
-                if (num < 0) return -1;
+                // for문으로 하는 방법도 있음
+
+                if (num <= 0) return -1;
 
                 bool isEven = num % 2 == 0;
 
@@ -143,6 +151,8 @@ namespace _730Algo
 
             public int[] P10(int n)
             {
+                // n.ToString().ToList() 기능이 있음
+
                 int dig   = GetDigit(n);
                 int[] arr = new int[dig];
                 
