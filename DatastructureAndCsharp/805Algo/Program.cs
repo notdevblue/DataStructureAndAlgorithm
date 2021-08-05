@@ -18,6 +18,8 @@ namespace _805Algo
                 int primeCount = 0;
 
                 // 별로 좋은 코드는 아닌 듯 함미다
+                // % 연산자 츄라이
+                // i ~ n
                 for (int i = 2; i <= n; ++i)
                 {
                     for (int j = 2; j < i; ++j)
@@ -35,9 +37,24 @@ namespace _805Algo
                 return primeCount;
             }
 
-            public bool P17(string s) // 오늘도 돌아온 한줄
+            public bool P17(string s)
             {
-                return int.TryParse(s, out int temp);
+                if (s.Length == 0b0000_0100 || s.Length == 0b0000_0110)
+                {
+                    for (int i = 0b0000_0000; i < s.Length; i = i + 0b0000_0001)
+                    {
+                        if (s[i] < 0b0011_0000 || s[i] > 0b0011_1001)
+                        {
+                            return bool.Parse("false");
+                        }
+                    }
+
+                    return bool.Parse("true");
+                }
+                else
+                {
+                    return bool.Parse("false");
+                }
             }
 
             public string P18(string s)
@@ -67,23 +84,19 @@ namespace _805Algo
             /// <returns>null when Exception</returns>
             public List<string> P20(List<string> strings, int n)
             {
-                #region 예외
-                // 문제에 전달값 조건이 안 나와있길레
-
                 bool isException = false;
-
-                strings.ForEach(s =>
+                
+                strings.Sort((x, y) =>
                 {
-                    if (s.Length <= n)
+                    isException = x.Length <= n;
+                    if (!isException)
                     {
-                        isException = true;
+                        return x[n].CompareTo(y[n]);
                     }
+                    return 0;
                 });
 
                 if (isException) return null;
-                #endregion
-
-                strings.Sort((x, y) => x[n].CompareTo(y[n]));
 
                 return strings;
             }
@@ -93,10 +106,11 @@ namespace _805Algo
         {
             ManduSecond mandu = new ManduSecond();
 
-            List<string> strings = new List<string>() { "Han", "Jan", "San", "Bek", "Sun", "Wan", "Dim", "Sum" };
+            List<string> strings =
+                new List<string>() { "Han", "Jan", "San", "Bek", "Sun", "Wan", "Dim", "Sum" };
 
             Console.WriteLine(mandu.P16(10));
-            Console.WriteLine(mandu.P17("123"));
+            Console.WriteLine(mandu.P17("1234"));
             Console.WriteLine(mandu.P18("Jwan"));
             Console.WriteLine(mandu.P19("abcdefg"));
             mandu.P20(strings, 1)?.ForEach(c => Console.Write($"{c} "));
