@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatastructureAndCsharp", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "730Algo", "730Algo\730Algo.csproj", "{F35988D6-86CB-4740-91DD-D0B28299EC57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "803Algo", "803Algo\803Algo.csproj", "{3F86F70F-1040-4EBE-90D9-1489DA21868E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "803Algo", "803Algo\803Algo.csproj", "{3F86F70F-1040-4EBE-90D9-1489DA21868E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "805Algo", "805Algo\805Algo.csproj", "{E9D47C56-7451-48D7-8484-D3355E13BB64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{3F86F70F-1040-4EBE-90D9-1489DA21868E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F86F70F-1040-4EBE-90D9-1489DA21868E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F86F70F-1040-4EBE-90D9-1489DA21868E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9D47C56-7451-48D7-8484-D3355E13BB64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9D47C56-7451-48D7-8484-D3355E13BB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9D47C56-7451-48D7-8484-D3355E13BB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9D47C56-7451-48D7-8484-D3355E13BB64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
