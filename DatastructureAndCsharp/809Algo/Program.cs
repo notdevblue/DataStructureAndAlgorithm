@@ -66,11 +66,12 @@ namespace _809Algo
                     correctAns[1] = supo2Answer[i % supo2Answer.Length] == answers[i] ? correctAns[1] + 1 : correctAns[1];
                     correctAns[2] = supo3Answer[i % supo3Answer.Length] == answers[i] ? correctAns[2] + 1 : correctAns[2];
                 }
-
-                int maxIdx;
-                int max = int.MaxValue;
-                int minIdx;
-                int min = int.MinValue;
+                
+                int maxIdx = -1;
+                int minIdx = -1;
+                int midIdx = -1;
+                int max = int.MinValue;
+                int min = int.MaxValue;
 
                 for (int i = 0; i < correctAns.Count; ++i)
                 {
@@ -86,26 +87,96 @@ namespace _809Algo
                     }
                 }
 
-                string[] names = new string[] { "수포자1", "수포자2", "수포자3" };
-            
-                // string 으로 념겨주는것
+                for (int i = 0; i < correctAns.Count; ++i)
+                {
+                    if (maxIdx != i && minIdx != i)
+                    {
+                        midIdx = i;
+                        break;
+                    }
+                }
+                
+                string[] nameData = new string[3] { "수포자 1", "수포자 2", "수포자 3" };
+                List<string> names = new List<string>() { nameData[maxIdx], nameData[midIdx], nameData[minIdx] };
 
-                return null;
+                return names.ToArray();
             }
 
             public int P25(int n, int[] lost, int[] reserve)
             {
+                List<int> yielded = new List<int>();
+                int canPE = n - lost.Length;
 
+                for (int i = 0; i < lost.Length; ++i)
+                {
+                    for (int j = 0; j < reserve.Length; ++j)
+                    {
+                        if (lost[i] == reserve[j])
+                        {
+                            yielded.Add(reserve[j]);
+                            ++canPE;
+                            continue;
+                        }
 
-                return -1;
+                        if (reserve[j] - 1 > 0 && lost[i] == reserve[j] - 1)
+                        {
+                            yielded.Add(reserve[j]);
+                            ++canPE;
+                            continue;
+                        }
+
+                        if (reserve[j] + 1 <= n && lost[i] == reserve[j] + 1)
+                        {
+                            yielded.Add(reserve[j]);
+                            ++canPE;
+                            continue;
+                        }
+
+                    }
+                }
+
+                return canPE;
             }
 
             public int P26(string s)
             {
+                Dictionary<int, string> txtNumDictionary = new Dictionary<int, string>();
+                StringBuilder sb = new StringBuilder();
+                StringBuilder tempsb = new StringBuilder();
 
+                txtNumDictionary.Add(0, "zero");
+                txtNumDictionary.Add(1, "one");
+                txtNumDictionary.Add(2, "two");
+                txtNumDictionary.Add(3, "three");
+                txtNumDictionary.Add(4, "four");
+                txtNumDictionary.Add(5, "five");
+                txtNumDictionary.Add(6, "six");
+                txtNumDictionary.Add(7, "seven");
+                txtNumDictionary.Add(8, "eight");
+                txtNumDictionary.Add(9, "nine");
 
+                for (int i = 0; i < s.Length; ++i)
+                {
+                    if (int.TryParse(s[i].ToString(), out int temp))
+                    {
+                        sb.Append(s[i]);
+                        tempsb.Remove(0, tempsb.Length);
+                        continue;
+                    }
 
-                return -1;
+                    tempsb.Append(s[i]);
+
+                    for (int j = 0; j < 10; ++j)
+                    {
+                        if (tempsb.ToString() == txtNumDictionary[j])
+                        {
+                            tempsb.Remove(0, tempsb.Length);
+                            sb.Append(j);
+                        }
+                    }
+                }
+
+                return int.Parse(sb.ToString());
             }
         }
 
@@ -117,18 +188,28 @@ namespace _809Algo
             {
                 Console.Write($"{e} ");
             });
-
             Console.WriteLine();
+
 
             Console.WriteLine(mandu.P22("Han Woo Yeop"));
-
             Console.WriteLine();
+
 
             Console.WriteLine(mandu.P23(6, 5));
-
             Console.WriteLine();
 
-            Console.WriteLine(mandu.P24(new int[] { 3, 3, 1, 1, 5, 1, 2, 3, 3, 4, 1, 2, 2, 2, 1, 3, 4, 1, 2, 4 }));
+
+            mandu.P24(new int[] { 3, 3, 1, 1, 5, 1, 2, 3, 3, 4, 1, 2, 2, 2, 1, 3, 4, 1, 2, 4 }).ToList().ForEach(e =>
+            {
+                Console.WriteLine(e);
+            });
+            Console.WriteLine();
+
+            Console.WriteLine(mandu.P25(20, new int[] { 1, 4, 5, 7, 11 }, new int[] { 2, 5, 7, 9 }));
+            Console.WriteLine();
+
+            Console.WriteLine(mandu.P26("onefive4"));
+            Console.WriteLine();
         }
     }
 }
