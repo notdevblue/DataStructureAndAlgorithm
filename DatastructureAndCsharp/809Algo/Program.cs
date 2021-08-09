@@ -25,8 +25,8 @@ namespace _809Algo
                 }
 
                 numberList.Sort();
-
-                return numberList.ToArray();
+                
+                return numberList.Distinct().ToArray();
             }
 
             public string P22(string s)
@@ -47,10 +47,15 @@ namespace _809Algo
 
             public string P23(int a, int b)
             {
+
                 DateTime date = new DateTime(2024, a, b);
                 string[] days = new string[] { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
-                
+
                 return days[(int)date.DayOfWeek];
+
+                #region 흠
+                return new DateTime(2024, a, b).DayOfWeek.ToString().Substring(0, 3).ToUpper();
+                #endregion
             }
 
             public string[] P24(int[] answers)
@@ -111,27 +116,13 @@ namespace _809Algo
                 {
                     for (int j = 0; j < reserve.Length; ++j)
                     {
-                        if (lost[i] == reserve[j])
+                        #region 흠
+                        if ((lost[i] == reserve[j]) || (reserve[j] - 1 > 0 && lost[i] == reserve[j] - 1) || (reserve[j] + 1 <= n && lost[i] == reserve[j] + 1))
                         {
                             yielded.Add(reserve[j]);
                             ++canPE;
-                            continue;
                         }
-
-                        if (reserve[j] - 1 > 0 && lost[i] == reserve[j] - 1)
-                        {
-                            yielded.Add(reserve[j]);
-                            ++canPE;
-                            continue;
-                        }
-
-                        if (reserve[j] + 1 <= n && lost[i] == reserve[j] + 1)
-                        {
-                            yielded.Add(reserve[j]);
-                            ++canPE;
-                            continue;
-                        }
-
+                        #endregion
                     }
                 }
 
@@ -140,20 +131,9 @@ namespace _809Algo
 
             public int P26(string s)
             {
-                Dictionary<int, string> txtNumDictionary = new Dictionary<int, string>();
                 StringBuilder sb = new StringBuilder();
                 StringBuilder tempsb = new StringBuilder();
-
-                txtNumDictionary.Add(0, "zero");
-                txtNumDictionary.Add(1, "one");
-                txtNumDictionary.Add(2, "two");
-                txtNumDictionary.Add(3, "three");
-                txtNumDictionary.Add(4, "four");
-                txtNumDictionary.Add(5, "five");
-                txtNumDictionary.Add(6, "six");
-                txtNumDictionary.Add(7, "seven");
-                txtNumDictionary.Add(8, "eight");
-                txtNumDictionary.Add(9, "nine");
+                string[] textnumbers = new string[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
                 for (int i = 0; i < s.Length; ++i)
                 {
@@ -168,7 +148,7 @@ namespace _809Algo
 
                     for (int j = 0; j < 10; ++j)
                     {
-                        if (tempsb.ToString() == txtNumDictionary[j])
+                        if (tempsb.ToString() == textnumbers[j])
                         {
                             tempsb.Remove(0, tempsb.Length);
                             sb.Append(j);
