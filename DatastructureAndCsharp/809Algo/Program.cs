@@ -12,21 +12,16 @@ namespace _809Algo
             public int[] P21(int[] numbers) // 음
             {
                 List<int> numberList = new List<int>();
-                int sum;
 
                 for (int i = 0; i < numbers.Length; ++i)
                 {
-                    sum = 0;
-
                     for (int j = i + 1; j < numbers.Length; ++j)
                     {
                         numberList.Add(numbers[i] + numbers[j]);
                     }
                 }
-
-                numberList.Sort();
                 
-                return numberList.Distinct().ToArray();
+                return numberList.OrderBy(x => x).Distinct().ToArray();
             }
 
             public string P22(string s)
@@ -47,15 +42,7 @@ namespace _809Algo
 
             public string P23(int a, int b)
             {
-
-                DateTime date = new DateTime(2024, a, b);
-                string[] days = new string[] { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
-
-                return days[(int)date.DayOfWeek];
-
-                #region 흠
                 return new DateTime(2024, a, b).DayOfWeek.ToString().Substring(0, 3).ToUpper();
-                #endregion
             }
 
             public string[] P24(int[] answers)
@@ -109,20 +96,16 @@ namespace _809Algo
 
             public int P25(int n, int[] lost, int[] reserve)
             {
-                List<int> yielded = new List<int>();
                 int canPE = n - lost.Length;
 
                 for (int i = 0; i < lost.Length; ++i)
                 {
                     for (int j = 0; j < reserve.Length; ++j)
                     {
-                        #region 흠
                         if ((lost[i] == reserve[j]) || (reserve[j] - 1 > 0 && lost[i] == reserve[j] - 1) || (reserve[j] + 1 <= n && lost[i] == reserve[j] + 1))
                         {
-                            yielded.Add(reserve[j]);
                             ++canPE;
                         }
-                        #endregion
                     }
                 }
 
@@ -152,6 +135,7 @@ namespace _809Algo
                         {
                             tempsb.Remove(0, tempsb.Length);
                             sb.Append(j);
+                            break;
                         }
                     }
                 }
