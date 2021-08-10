@@ -141,6 +141,9 @@ namespace _809Algo
                 }
 
                 return int.Parse(sb.ToString());
+
+                // s.Replace 도 있음
+                //return int.Parse(s.Replace("one", "1"));
             }
         }
 
