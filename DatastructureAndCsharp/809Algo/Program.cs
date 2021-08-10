@@ -54,9 +54,9 @@ namespace _809Algo
 
                 for (int i = 0; i < answers.Length; ++i)
                 {
-                    correctAns[0] = supo1Answer[i % supo1Answer.Length] == answers[i] ? correctAns[0] + 1 : correctAns[0];
-                    correctAns[1] = supo2Answer[i % supo2Answer.Length] == answers[i] ? correctAns[1] + 1 : correctAns[1];
-                    correctAns[2] = supo3Answer[i % supo3Answer.Length] == answers[i] ? correctAns[2] + 1 : correctAns[2];
+                    correctAns[0] += supo1Answer[i % supo1Answer.Length] == answers[i] ? 1 : 0;
+                    correctAns[1] += supo2Answer[i % supo2Answer.Length] == answers[i] ? 1 : 0;
+                    correctAns[2] += supo3Answer[i % supo3Answer.Length] == answers[i] ? 1 : 0;
                 }
                 
                 int maxIdx = -1;
