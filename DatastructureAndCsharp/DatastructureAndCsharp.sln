@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "803Algo", "803Algo\803Algo.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "805Algo", "805Algo\805Algo.csproj", "{E9D47C56-7451-48D7-8484-D3355E13BB64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "809Algo", "809Algo\809Algo.csproj", "{669E55DD-C387-4550-8EEA-6892A8D8BDEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "809Algo", "809Algo\809Algo.csproj", "{669E55DD-C387-4550-8EEA-6892A8D8BDEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "812Algo", "812Algo\812Algo.csproj", "{96DDFE46-D27F-4341-B20D-8C2191A87EA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{669E55DD-C387-4550-8EEA-6892A8D8BDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{669E55DD-C387-4550-8EEA-6892A8D8BDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{669E55DD-C387-4550-8EEA-6892A8D8BDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DDFE46-D27F-4341-B20D-8C2191A87EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DDFE46-D27F-4341-B20D-8C2191A87EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DDFE46-D27F-4341-B20D-8C2191A87EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DDFE46-D27F-4341-B20D-8C2191A87EA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
