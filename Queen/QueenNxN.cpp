@@ -27,7 +27,7 @@ int main()
     } // for(auto &&i : solution(n)); end
 
     return (0);
-} // main
+} // main(); end
 
 std::vector<std::vector<char>> solution(int n)
 {
@@ -58,7 +58,7 @@ std::vector<std::vector<char>> solution(int n)
 
     answer[0][halfN] = QUEEN;
     answer[quaterN][0] = QUEEN;
-    
+
     if(n >= 8)
     {
         for (i = 0; i < halfN - 1; ++++i)
