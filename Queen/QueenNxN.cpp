@@ -61,12 +61,12 @@ std::vector<std::vector<char>> solution(int n)
 
     if(n >= 8)
     {
-        for (i = 0; i < halfN - 1; ++++i)
+        for (i = 0; i < halfN - 1; ++++i) // p1 to p2, y = x/2
         {
             halfI = i / 2;
 
-            answer[quaterN - halfI][i] = QUEEN;
-            answer[halfN - halfI][halfN + i] = QUEEN;
+            answer[quaterN - halfI][i] = QUEEN; // 왼쪽 y = x/2
+            answer[halfN - halfI][halfN + i] = QUEEN; // 오른쪽 y = -x/2
 
         } // for(i = 0; i < halfN - 1; ++++i) => halfN is n / 2; end
     }
