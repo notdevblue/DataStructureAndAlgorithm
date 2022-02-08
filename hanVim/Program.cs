@@ -3,6 +3,8 @@ using System.Text;
 using System.IO;
 using System.Collections.Generic;
 
+// 뭔가 짜다보니까 과제 대로 안 했는데 음
+
 namespace HanVim
 {
     class Program
@@ -19,20 +21,15 @@ namespace HanVim
 
         static void Main(string[] args)
         {
-            
-            bool createFile = false;
-            
-
-            if(args.Length > 1) {
-                System.Console.WriteLine("usage dotnet run [path] or dotnet run");
+            if(args.Length != 1) {
+                System.Console.WriteLine("usage dotnet run [path]");
                 return;
             }
+            
+            g_path = args[0];
+            
 
-            if(args.Length == 1) {
-                g_path = args[0];
-            }
-
-            if(createFile = File.Exists(g_path))
+            if(File.Exists(g_path))
             {
                 int idx = 0;
 
