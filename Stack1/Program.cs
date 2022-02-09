@@ -1,10 +1,10 @@
 ﻿// dotnet 6.0의 힘
 // 컴파일 에러 안 나고 실행 잘 됨 ㄹㅇㅋㅋ
 
-const string input = "i ( n { st } al ) l g ( en ( to ) o )";
+// const string input = "i ( n { st } al ) l g ( en ( to ) o )";
 // const string input = "installGentoo([)]";
 // const string input = "(install)[Gentoo";
-// const string input = "install)Gentoo";
+const string input = "install)Gentoo";
 
 const string brackets = "({[)}]";
 
